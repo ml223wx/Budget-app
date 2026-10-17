@@ -185,3 +185,11 @@ The app's core functionality consists of three main components:
 3. **Expense Analysis:** Users shall be able to view total expenses, analyze spending by category and subcategory, and select custom time periods.
 
 The most important success factor is making expense registration simple enough that users will do it regularly. At the same time, the dashboard must provide an accurate and understandable overview of where their money goes.
+
+# Running the app (PWA)
+
+The app lives in `pwa/` and is a static Progressive Web App: no backend, all data is stored locally in the phone's IndexedDB.
+
+- Try locally: `npx http-server pwa` and open http://localhost:8080.
+- Install on a phone: host the `pwa/` folder on any static HTTPS host (e.g. GitHub Pages), open the URL in Chrome/Safari and choose *Add to home screen*. It then works offline.
+- Note: clearing site data or uninstalling the app deletes the stored expenses; use *Export period as CSV* for backups.
