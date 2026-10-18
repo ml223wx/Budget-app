@@ -91,7 +91,7 @@ async function start() {
     console.log('Kategorier i index.js - start():', categories);
     console.log('Utgifter i index.js - start():', expenses);
     
-    const dashboardController = new DashboardController(root, expenseManager, categoryManager)
+    const dashboardController = new DashboardController(root, expenseManager)
     dashboardController.renderDashboard()
 }
 

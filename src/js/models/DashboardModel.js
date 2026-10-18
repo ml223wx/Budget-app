@@ -1,12 +1,18 @@
 export class DashboardModel {
-    constructor() {
+    constructor(expenseManager) {
+        this.expenseManager = expenseManager
     }
 
-    getDashboardContent(expenses, categories) {
+    getDashboardContent() {
+
+        const today = new Date()
+        const year = today.getFullYear()
+        const month = today.getMonth()
+
+        const totalExpensesCurrentMonth = this.expenseManager.getSumExpensesForMonth(year, month)
 
         return {
-            expenses,
-            categories
+            totalExpensesCurrentMonth
         }
     }
 }
