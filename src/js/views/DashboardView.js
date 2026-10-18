@@ -1,13 +1,17 @@
 export class DashboardView {
 
-    render(message) {
-        const dashboard = document.createElement('div')
-        dashboard.id = 'dashboard'
+    render(toBeRendered) {
+    const dashboard = document.createElement('div')
+    dashboard.id = 'dashboard'
 
-        const paragraph = document.createElement('p')
-        paragraph.textContent = message;
+    const list = document.createElement('ul')
+    toBeRendered.categories.forEach(category => {
+        const item = document.createElement('li')
+        item.textContent = category.name
+        list.append(item)
+    })
 
-        dashboard.append(paragraph)
-        return dashboard;
+    dashboard.append(list)
+    return dashboard
     }
 }
