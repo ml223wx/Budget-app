@@ -1,0 +1,20 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overscroll-behavior: none;          /* ingen "pull-to-refresh"/studs */
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  max-width: 480px;                   /* begränsar bredden på större skärmar */
+  margin-inline: auto;                /* centrerar appen */
+  min-height: 100dvh;                 /* korrekt höjd på mobil (adressfält) */
+  font-family: system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;         /* tar bort 300 ms klickfördröjning/dubbeltrycks-zoom */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left); /* notch/hemindikator */
+}
+
