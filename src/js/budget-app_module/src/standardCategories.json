@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Communication",
+    "subCategories": ["Post", "Telephone"]
+  },
+  {
+    "name": "Food",
+    "subCategories": ["Groceries", "Restaurant", "Snacks"]
+  },
+  {
+    "name": "Hobby",
+    "subCategories": ["Crafts", "Vacation", "Events", "Subscriptions"]
+  },
+  {
+    "name": "Household",
+    "subCategories": ["Consumables", "Decor"]
+  },
+  {
+    "name": "Shopping",
+    "subCategories": ["Clothes & accessories", "Stationaries"]
+  },
+  {
+    "name": "Transportation",
+    "subCategories": ["Long distance", "Public transport"]
+  }
+]

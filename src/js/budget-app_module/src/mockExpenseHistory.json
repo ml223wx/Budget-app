@@ -1,0 +1,72 @@
+[
+  {
+    "amount": 100,
+    "date": "2026-07-14",
+    "category": "Food",
+    "subCategory": "Snacks",
+    "description": "ice cream"
+  },
+  {
+    "amount": 100,
+    "date": "2026-07-14",
+    "category": "Food",
+    "subCategory": "Groceries",
+    "description": ""
+  },
+  {
+    "amount": 100,
+    "date": "2026-07-15",
+    "category": "Food",
+    "subCategory": "Restaurant",
+    "description": "burger"
+  },
+  {
+    "amount": 100,
+    "date": "2026-08-16",
+    "category": "Food",
+    "subCategory": "Snacks",
+    "description": "candy"
+  },
+  {
+    "amount": 100,
+    "date": "2026-08-16",
+    "category": "Hobby",
+    "subCategory": "Crafts",
+    "description": "fabric"
+  },
+  {
+    "amount": 100,
+    "date": "2026-08-16",
+    "category": "Household",
+    "subCategory": "Consumables",
+    "description": "dish soap"
+  },
+  {
+    "amount": 100,
+    "date": "2026-07-18",
+    "category": "Food",
+    "subCategory": "Restaurant",
+    "description": "vietnamese"
+  },
+  {
+    "amount": 100,
+    "date": "2026-08-18",
+    "category": "Transportation",
+    "subCategory": "Public transport",
+    "description": ""
+  },
+  {
+    "amount": 100,
+    "date": "2026-08-20",
+    "category": "Hobby",
+    "subCategory": "Crafts",
+    "description": "sewing thread"
+  },
+  {
+    "amount": 100,
+    "date": "2026-08-21",
+    "category": "Shopping",
+    "subCategory": "Stationaries",
+    "description": "notebook"
+  }
+]
