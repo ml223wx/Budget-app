@@ -1,8 +1,6 @@
 import { DashboardController } from './controllers/DashboardController.js'
 import { ExpenseManager } from './budget-app_module/src/ExpenseManager.js'
 import { CategoryManager } from './budget-app_module/src/CategoryManager.js'
-// import standardCategories from './budget-app_module/src/standardCategories.json' with { type: 'json' }
-// import { JSONCategoriesConverter } from './budget-app_module/src/JSONcategoriesConverter.js'
 import './budget-app_module/src/JSONExpensesHistoryConverter.js'
 import { DatabaseHandler } from './databaseHandler.js'
 

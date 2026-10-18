@@ -11,6 +11,13 @@ export class DashboardView {
         totalAmount.textContent = `${dashboardData.totalExpensesCurrentMonth} kr`
         dashboard.append(totalAmount)
 
+        dashboardData.categories.forEach(category => {
+            const button = document.createElement('button')
+            button.textContent = category.name
+            button.dataset.category = category.name
+            dashboard.append(button)
+        })
+
         return dashboard
     }
 }

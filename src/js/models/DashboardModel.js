@@ -12,7 +12,8 @@ export class DashboardModel {
         const totalExpensesCurrentMonth = this.expenseManager.getSumExpensesForMonth(year, month)
 
         return {
-            totalExpensesCurrentMonth
+            totalExpensesCurrentMonth,
+            categories: this.expenseManager.categories
         }
     }
 }

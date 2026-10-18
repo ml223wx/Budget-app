@@ -13,6 +13,13 @@ export class DashboardController {
         const dashboardContent = this.model.getDashboardContent()
         const dashboardElement = this.view.render(dashboardContent)
 
+        const categoryButtons = dashboardElement.querySelectorAll('button[data-category]')
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                console.log(button.dataset.category)  // "Food"
+            })
+        })
+
         this.root.replaceChildren(dashboardElement);
     }
 }
