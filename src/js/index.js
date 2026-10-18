@@ -1,12 +1,18 @@
 import { DashboardController } from './controllers/DashboardController.js'
+// import { AddExpenseController } from './controllers/AddExpenseController.js'
+// import { SplitController } from './controllers/SplitController.js'
+// import { HistoryController } from './controllers/HistoryController.js'
+import { NavigationController } from './controllers/NavigationController.js'
 import { ExpenseManager } from './budget-app_module/src/ExpenseManager.js'
 import { CategoryManager } from './budget-app_module/src/CategoryManager.js'
 import './budget-app_module/src/JSONExpensesHistoryConverter.js'
 import { DatabaseHandler } from './databaseHandler.js'
 
+
 /**
  * Initializes the application by reading categories and expenses from the IndexedDB database,
  * creating managers for expenses and categories, and rendering the dashboard.
+ * Sets up the navigation and renders the initial dashboard view.
  */
 async function start() {
     const root = document.querySelector('#app')
@@ -21,8 +27,18 @@ async function start() {
     console.log('Kategorier i index.js - start():', categories);
     console.log('Utgifter i index.js - start():', expenses);
     
-    const dashboardController = new DashboardController(root, expenseManager)
-    dashboardController.renderDashboard()
+    // const dashboardController = new DashboardController(root, expenseManager)
+    // // dashboardController.render()
+
+    const pages = {
+      dashboard: new DashboardController(root, expenseManager),
+      // expense: new AddExpenseController(root, expenseManager),
+      // split: new SplitController(root, expenseManager),
+      // history: new HistoryController(root, expenseManager)
+    }
+
+    const navigation = new NavigationController(document.querySelector('#tabs'), pages)
+    navigation.goTo('dashboard')
 }
 
 start()
