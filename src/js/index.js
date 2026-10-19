@@ -1,5 +1,5 @@
 import { DashboardController } from './controllers/DashboardController.js'
-// import { AddExpenseController } from './controllers/AddExpenseController.js'
+import { AddExpenseController } from './controllers/AddExpenseController.js'
 // import { SplitController } from './controllers/SplitController.js'
 // import { HistoryController } from './controllers/HistoryController.js'
 import { NavigationController } from './controllers/NavigationController.js'
@@ -18,6 +18,8 @@ async function start() {
     const root = document.querySelector('#app')
 
     const dbHandler = new DatabaseHandler()
+    // Log the current content of the database for debugging purposes:
+    // await dbHandler.logDatabaseContent()
     const { categories, expenses } = await dbHandler.readCategoriesAndExpenses()
 
     const expenseManager = new ExpenseManager(expenses, categories)
@@ -31,10 +33,10 @@ async function start() {
     // // dashboardController.render()
 
     const pages = {
-      dashboard: new DashboardController(root, expenseManager),
-      // expense: new AddExpenseController(root, expenseManager),
-      // split: new SplitController(root, expenseManager),
-      // history: new HistoryController(root, expenseManager)
+      dashboard: new DashboardController(root, expenseManager, dbHandler),
+      expense: new AddExpenseController(root, expenseManager, categoryManager, dbHandler),
+      // split: new SplitController(root, expenseManager, dbHandler),
+      // history: new HistoryController(root, expenseManager, dbHandler)
     }
 
     const navigation = new NavigationController(document.querySelector('#tabs'), pages)

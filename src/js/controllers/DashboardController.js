@@ -2,10 +2,11 @@ import { DashboardModel } from '../models/DashboardModel.js';
 import { DashboardView } from '../views/DashboardView.js';
 
 export class DashboardController {
-    constructor(root, expenseManager) {
+    constructor(root, expenseManager, dbHandler) {
         this.root = root
         this.model = new DashboardModel(expenseManager)
         this.view = new DashboardView()
+        this.dbHandler = dbHandler
     }
 
     /**
@@ -19,7 +20,7 @@ export class DashboardController {
         const categoryButtons = dashboardElement.querySelectorAll('button[data-category]')
         this.createCategoryButtonsListener(categoryButtons)
 
-        this.root.replaceChildren(dashboardElement);
+        this.root.replaceChildren(dashboardElement)
     }
 
     /**
