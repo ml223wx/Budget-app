@@ -20,11 +20,9 @@ export class AddExpenseController {
 
             const data = new FormData(expenseForm)
 
-            const formattedDate = new Date(data.get('date'))
-
             this.model.saveExpense({
                 amount: Number(data.get('expense')),
-                date: formattedDate,
+                date: (data.get('date')),
                 comment: data.get('comment'),
                 category: this.selectedCategory
             })

@@ -9,16 +9,24 @@ export class AddExpenseModel {
             throw new Error(`Category "${expense.category}" does not exist.`)
         }
 
-        const id = await this.dbHandler.addExpense(expense)
-        const savedExpense = {
+        const expenseToSave = {
             amount: expense.amount,
             category: expense.category,
             comment: expense.comment,
-            date: expense.date,
+            // Formats date before it saves to the database
+            date: new Date(expense.date)
+        }
+
+        const id = await this.dbHandler.addExpense(expenseToSave)
+        const savedExpenseWithGeneratedId = {
+            amount: expense.amount,
+            category: expense.category,
+            comment: expense.comment,
+            date: formattedDate,
             id: id
         }
 
-        this.expenseManager.addExpense(savedExpense)
-        return savedExpense
+        this.expenseManager.addExpense(savedExpenseWithGeneratedId)
+        return savedExpenseWithGeneratedId
     }
 }
