@@ -22,7 +22,7 @@ export class AddExpenseModel {
             amount: expense.amount,
             category: expense.category,
             comment: expense.comment,
-            date: formattedDate,
+            date: new Date(expense.date),
             id: id
         }
 

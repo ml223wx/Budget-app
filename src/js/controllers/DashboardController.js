@@ -2,11 +2,11 @@ import { DashboardModel } from '../models/DashboardModel.js';
 import { DashboardView } from '../views/DashboardView.js';
 
 export class DashboardController {
-    constructor(root, expenseManager, dbHandler) {
+    constructor(root, expenseManager, databaseHandler) {
         this.root = root
         this.model = new DashboardModel(expenseManager)
         this.view = new DashboardView()
-        this.dbHandler = dbHandler
+        this.dbHandler = databaseHandler
     }
 
     /**
@@ -30,8 +30,15 @@ export class DashboardController {
     createCategoryButtonsListener(categoryButtons) {        
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
-                console.log(button.dataset.category)  // 'Food'
+                this.renderByCategory(button.dataset.category)
             })
         })
+    }
+
+    renderByCategory(categoryName) {
+        const categoryData = this.model.getDashboardContentByCategory(categoryName)
+        const dashboardElement = this.view.renderByCategory(categoryData.name, categoryData.totalExpenses)
+
+        this.root.replaceChildren(dashboardElement)
     }
 }

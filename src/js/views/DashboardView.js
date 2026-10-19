@@ -20,4 +20,19 @@ export class DashboardView {
 
         return dashboard
     }
+
+    renderByCategory(categoryName, categoryTotal) {
+        const dashboard = document.createElement('div')
+        dashboard.id = 'dashboard'
+
+        const dashboardHeader = document.createElement('h2')
+        dashboardHeader.textContent = `Spent on ${categoryName}:`
+        dashboard.append(dashboardHeader)
+
+        const totalAmount = document.createElement('p')
+        totalAmount.textContent = `${categoryTotal} kr`
+        dashboard.append(totalAmount)
+
+        return dashboard
+    }
 }

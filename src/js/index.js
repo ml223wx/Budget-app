@@ -19,7 +19,7 @@ async function start() {
 
     const dbHandler = new DatabaseHandler()
     // Log the current content of the database for debugging purposes:
-    // await dbHandler.logDatabaseContent()
+    await dbHandler.logDatabaseContent()
     const { categories, expenses } = await dbHandler.readCategoriesAndExpenses()
 
     const expenseManager = new ExpenseManager(expenses, categories)
