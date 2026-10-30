@@ -15,6 +15,7 @@ import { DatabaseHandler } from './databaseHandler.js'
  * Sets up the navigation and renders the initial dashboard view.
  */
 async function start() {
+  console.log('Nu är det startat')
     const root = document.querySelector('#app')
 
     const dbHandler = new DatabaseHandler()
@@ -26,8 +27,8 @@ async function start() {
     const categoryManager = new CategoryManager(categories)
 
     // Test logs:
-    console.log('Kategorier i index.js - start():', categories);
-    console.log('Utgifter i index.js - start():', expenses);
+    // console.log('Kategorier i index.js - start():', categories);
+    // console.log('Utgifter i index.js - start():', expenses);
     
     // const dashboardController = new DashboardController(root, expenseManager)
     // // dashboardController.render()

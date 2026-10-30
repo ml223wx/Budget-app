@@ -112,9 +112,39 @@ export class DatabaseHandler {
     async logDatabaseContent() {
         const { categories, expenses } = await this.readCategoriesAndExpenses()
 
-        console.log('Categories in database:', categories)
-        console.log('Expenses in database:', expenses)
-        console.table(expenses)
-    }   
+        // console.log('Categories in database:', categories)
+        // console.log('Expenses in database:', expenses)
+        // console.table(expenses)
+    }
+    
+    async addCategory(category) {
+        console.log('add category i databaseHandler')
+        const db = await this.openDB()
+
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction('categories', 'readwrite')
+            const request = transaction.objectStore('categories').add(category)
+            let id
+
+            request.onsuccess = () => {
+                id = request.result
+            }
+
+            transaction.oncomplete = () => {
+                db.close()
+                resolve(id)
+            }
+
+            transaction.onerror = () => {
+                db.close()
+                reject(transaction.error ?? request.error)
+            }
+
+            transaction.onabort = () => {
+                db.close()
+                reject(transaction.error ?? new Error('Could not save category'))
+            }
+        })
+    }
 }
 

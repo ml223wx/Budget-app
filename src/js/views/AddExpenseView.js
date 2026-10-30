@@ -4,8 +4,9 @@ export class AddExpenseView {
         this.categories = categories
     }
     
-    render(onCategorySelected) {
+    render(onCategorySelected, onCreateNewCategory) {
         this.onCategorySelected = onCategorySelected
+        this.onCreateNewCategory = onCreateNewCategory
         const form = this.createForm()
 
         return form
@@ -36,6 +37,7 @@ export class AddExpenseView {
         form.appendChild(inputComment)
 
         this.createCategoryButtons(this.categories, form)
+        this.createNewCategoryButton(form)
 
         return form
     }
@@ -50,5 +52,14 @@ export class AddExpenseView {
             button.addEventListener('click', () => this.onCategorySelected(category.name))
             form.appendChild(button)
         })
+    }
+
+    createNewCategoryButton(form) {
+        const button = document.createElement('button')
+        button.type = 'button'
+        button.name = 'new-category-button'
+        button.textContent = 'Add new category'
+        button.addEventListener('click', () => this.onCreateNewCategory('Test new category'))
+        form.appendChild(button)
     }
  }
