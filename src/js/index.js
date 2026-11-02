@@ -1,7 +1,7 @@
 import { DashboardController } from './controllers/DashboardController.js'
 import { AddExpenseController } from './controllers/AddExpenseController.js'
 // import { SplitController } from './controllers/SplitController.js'
-// import { HistoryController } from './controllers/HistoryController.js'
+import { HistoryController } from './controllers/HistoryController.js'
 import { NavigationController } from './controllers/NavigationController.js'
 import { ExpenseManager } from './budget-app_module/src/ExpenseManager.js'
 import { CategoryManager } from './budget-app_module/src/CategoryManager.js'
@@ -37,7 +37,7 @@ async function start() {
       dashboard: new DashboardController(root, expenseManager, dbHandler),
       expense: new AddExpenseController(root, expenseManager, categoryManager, dbHandler),
       // split: new SplitController(root, expenseManager, dbHandler),
-      // history: new HistoryController(root, expenseManager, dbHandler)
+      history: new HistoryController(root, expenseManager, dbHandler)
     }
 
     const navigation = new NavigationController(document.querySelector('#tabs'), pages)
