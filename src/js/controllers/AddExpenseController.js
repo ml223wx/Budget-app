@@ -30,13 +30,7 @@ export class AddExpenseController {
             event.preventDefault()
 
             const data = new FormData(expenseForm)
-            let date
-
-            if (!data.get('date')) {
-                date = new Date()
-            } else {
-                date = new Date(data.get('date'))
-            }
+            let date = this.getDate(data)
 
             this.model.saveExpense({
                 amount: Number(data.get('expense')),
@@ -47,6 +41,14 @@ export class AddExpenseController {
         })
 
         this.root.replaceChildren(expenseForm)
+    }
+
+    getDate(data){
+        if (!data.get('date')) {
+            return new Date()
+        } else {
+            return new Date(data.get('date'))
+        }
     }
     
 }
