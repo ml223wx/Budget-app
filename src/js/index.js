@@ -27,8 +27,8 @@ async function start() {
     const categoryManager = new CategoryManager(categories)
 
     // Test logs:
-    // console.log('Kategorier i index.js - start():', categories);
-    // console.log('Utgifter i index.js - start():', expenses);
+    console.log('Kategorier i index.js - start():', categories);
+    console.log('Utgifter i index.js - start():', expenses);
     
     // const dashboardController = new DashboardController(root, expenseManager)
     // // dashboardController.render()

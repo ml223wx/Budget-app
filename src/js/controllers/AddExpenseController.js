@@ -30,10 +30,17 @@ export class AddExpenseController {
             event.preventDefault()
 
             const data = new FormData(expenseForm)
+            let date
+
+            if (!data.get('date')) {
+                date = new Date()
+            } else {
+                date = new Date(data.get('date'))
+            }
 
             this.model.saveExpense({
                 amount: Number(data.get('expense')),
-                date: (data.get('date')),
+                date: date,
                 comment: data.get('comment'),
                 category: this.selectedCategory
             })
