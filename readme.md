@@ -160,8 +160,9 @@ To make the development of an initial working version manageable, the following 
 
 - [ ] Manual expense registration.
 - [ ] Automatic date and time entry.
-- [ ] Ability to edit the date and time.
+- [ ] Ability to edit the date.
 - [ ] Predefined main categories and subcategories.
+- [ ] Ability to create custom categories.
 - [ ] Ability to create custom subcategories.
 - [ ] Free-text comments for expenses.
 - [ ] Dashboard displaying total expenses for the current month.
