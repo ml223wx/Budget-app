@@ -1,3 +1,4 @@
+import { EditExpenseController } from './EditExpenseController.js'
 import { HistoryModel } from '../models/HistoryModel.js'
 import { HistoryView } from '../views/HistoryView.js'
 
@@ -22,6 +23,10 @@ export class HistoryController {
     editExpenseItem(expenseItem) {
         console.log('Selected expense item:', expenseItem)
         this.selectedExpense = expenseItem
+        const editExpenseController = new EditExpenseController(this.databaseHandler, this.root, expenseItem, (updatedExpense) => {
+            console.log('Updated expense item callback function')
+            this.render() // After updating an expense item, re-render the history view.
+        })
+        editExpenseController.render()
     }
 }
-

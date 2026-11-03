@@ -146,5 +146,30 @@ export class DatabaseHandler {
             }
         })
     }
+
+    async updateExpense(expense) {
+        const db = await this.openDB()
+
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction('expenses', 'readwrite')
+            // put() ersätter posten med samma id; add() skulle skapa en ny
+            transaction.objectStore('expenses').put(expense)
+
+            transaction.oncomplete = () => {
+                db.close()
+                resolve(expense)
+            }
+
+            transaction.onerror = () => {
+                db.close()
+                reject(transaction.error)
+            }
+
+            transaction.onabort = () => {
+                db.close()
+                reject(transaction.error ?? new Error('Could not update expense'))
+            }
+        })
+    }
 }
 
