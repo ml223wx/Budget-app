@@ -17,6 +17,8 @@ export class AddExpenseController {
         const expenseForm = this.view.render(
             (category) => {
                 this.selectedCategory = category
+                console.log('category')
+                console.log(category)
             },
             // Callback to create new category
             (name) => {
@@ -36,7 +38,8 @@ export class AddExpenseController {
                 amount: Number(data.get('expense')),
                 date: date,
                 comment: data.get('comment'),
-                category: this.selectedCategory
+                category: this.selectedCategory.name,
+                subcategory: data.get('subcategory')
             })
         })
 

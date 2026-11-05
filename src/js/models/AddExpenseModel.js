@@ -12,15 +12,18 @@ export class AddExpenseModel {
         const expenseToSave = {
             amount: expense.amount,
             category: expense.category,
+            subcategory: expense.subcategory,
             comment: expense.comment,
             // Formats date before it saves to the database
             date: new Date(expense.date)
+            
         }
 
         const id = await this.dbHandler.addExpense(expenseToSave)
         const savedExpenseWithGeneratedId = {
             amount: expense.amount,
             category: expense.category,
+            subcategory: expense.subcategory,
             comment: expense.comment,
             date: new Date(expense.date),
             id: id

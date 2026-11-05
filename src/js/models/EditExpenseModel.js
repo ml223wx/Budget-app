@@ -4,7 +4,6 @@ export class EditExpenseModel {
         this.databaseHandler = databaseHandler
     }
 
-// EditExpenseModel.js
 async updateExpense(updatedExpense) {
 
     return await this.databaseHandler.updateExpense({

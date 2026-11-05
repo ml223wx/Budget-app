@@ -147,6 +147,31 @@ export class DatabaseHandler {
         })
     }
 
+    async updateCategory(category) {
+        const db = await this.openDB()
+
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction('categories', 'readwrite')
+            // put() ersätter kategorin med samma id
+            transaction.objectStore('categories').put(category)
+
+            transaction.oncomplete = () => {
+                db.close()
+                resolve(category)
+            }
+
+            transaction.onerror = () => {
+                db.close()
+                reject(transaction.error)
+            }
+
+            transaction.onabort = () => {
+                db.close()
+                reject(transaction.error ?? new Error('Could not update category'))
+            }
+        })
+    }
+
     async updateExpense(expense) {
         const db = await this.openDB()
 
